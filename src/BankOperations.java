@@ -1,0 +1,109 @@
+public class BankOperations {
+
+    // Initialization: Object Declaration
+    private static Person person;
+
+    // Initialization: Array Declaration
+    private final static String[] bankOptions = {"A. Show Personal Info",
+                                                 "B. Check Balance",
+                                                 "C. Deposit Money",
+                                                 "D. Withdraw Money",
+                                                 "E. Show Transaction History",
+                                                 "F. Exit"};
+
+    //Initialization: For Array to store transaction history
+    private static final String[] transactionHistory = new String[10];
+    private static int transactionCount  = 0;
+
+    // Method: Bank Operations - Operate bank transactions
+    public static void operateBankTransactions (Person BankHolder) {
+
+        // Initialization: Set the static person field
+        person = BankHolder;
+
+        // Initialization: Variable Declaration
+        char choice;
+        double balance = person.getBalance();
+        boolean isRunning = true;
+
+        while (isRunning) {
+            //Initialization: Display welcome message and bank menu
+            displayBankMenu(bankOptions);
+
+            // Process: Validates if the choice inputted correctly and valid
+            choice = InputValidator.validateBankChoiceInput();
+
+            switch (choice) {
+                case 'A' -> {
+                    System.out.println("\n==== Bank Account Information ====");
+                    BankTransactions.displayBankAccountInfo(person);
+                    System.out.println("-----------------------------\n");
+
+                    // Process: Verify if the user wants to continue his/her transaction
+                    isRunning = BankTransactions.transactionContinuation(person);
+                }
+                case 'B' -> {
+                    System.out.println("\n==== Display Balance ====");
+                    BankTransactions.showBalance(balance);
+                    System.out.println("-----------------------------\n");
+
+                    // Process: Verify if the user wants to continue his/her transaction
+                    isRunning = BankTransactions.transactionContinuation(person);
+                }
+                case 'C' -> {
+                    System.out.println("\n==== Deposit Money ====");
+                    balance += BankTransactions.deposit();
+                    person.setBalance(balance);
+
+                    // Process: Record transaction and update transaction count
+                    BankTransactions.recordTransactions(transactionHistory, "Transaction: Deposit - Total Money: ₱", balance, transactionCount);
+                    transactionCount++;
+
+                    BankTransactions.showBalance(balance);
+                    System.out.println("-----------------------------\n");
+
+                    // Process: Verify if the user wants to continue his/her transaction
+                    isRunning = BankTransactions.transactionContinuation(person);
+                }
+                case 'D' -> {
+                    System.out.println("\n==== Withdraw Balance ====");
+                    balance -= BankTransactions.withdraw(balance);
+                    person.setBalance(balance);
+
+                    // Process: Record transaction and update transaction count
+                    BankTransactions.recordTransactions(transactionHistory, "Transaction: Withdraw - Total Money: ₱", balance, transactionCount);
+                    transactionCount++;
+
+                    BankTransactions.showBalance(balance);
+                    System.out.println("-----------------------------\n");
+
+                    // Process: Verify if the user wants to continue his/her transaction
+                    isRunning = BankTransactions.transactionContinuation(person);
+                }
+                case 'E' -> {
+                    System.out.println("\n==== Show Transaction History ====\n");
+                    System.out.println("Transaction Logs:");
+                    BankTransactions.displayTransactions(transactionHistory);
+                    System.out.println("-----------------------------\n");
+
+                    // Process: Verify if the user wants to continue his/her transaction
+                    isRunning = BankTransactions.transactionContinuation(person);
+                }
+                case 'F' -> {
+                    System.out.printf("Thank you for the transactions, %s!\n", person.getName());
+                    System.out.println("Exiting program...");
+                    isRunning = false;
+                }
+                default -> System.out.println("Invalid Input: Enter correct choices (A, B, C, D, E, or F)! Please try again.");
+            }
+        }
+    }
+
+    //Method: Bank Operations - Display Bank Menu
+    public static void displayBankMenu(String... bankOptions) {
+        System.out.printf("\nWelcome to the bank, %s!\n", person.getName());
+        for(String option : bankOptions){
+            System.out.println(option);
+        }
+    }
+}
