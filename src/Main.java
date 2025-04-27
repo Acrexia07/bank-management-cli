@@ -4,7 +4,7 @@
             //Initialization: Create a Person object by collecting user's personal information (name, age & contactNumber)
             Person person = UserInputHandler.enterPersonalInfo();
 
-            // Input/Outputs: Bank inputs and transactions
+            // Input/Outputs: Bank inputs and transactions - Overall bank operations
             BankOperations.operateBankTransactions(person);
 
             // Exit: Close scanner object
