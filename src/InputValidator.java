@@ -57,6 +57,7 @@ public class InputValidator {
     // Method: Input validation - Contact Number
     public static boolean validateContactNumberInput (String contactNumber ) {
 
+        // Process: Validates contact number input
         if (contactNumber.startsWith("09")) {
             if (contactNumber.length() != 11) {
                 System.out.println("Invalid contact number: Local format must be exactly 11 digits (09XXXXXXXXX)!");
@@ -81,8 +82,10 @@ public class InputValidator {
     // Method: Input validation - Bank menu choice
     public static char validateBankChoiceInput () {
 
+        // Initialization: Variable Declaration
         String validateChoice;
 
+        // Process: Loops until the user inputs correct and valid choice
         while (true) {
             System.out.print("Enter your choice: ");
             validateChoice = scn.next().toUpperCase();
