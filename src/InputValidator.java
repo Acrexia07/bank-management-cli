@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class InputValidator {
 
     // Initialization: Object Declaration
-    static final Scanner scn = new Scanner(System.in);
+    public static final Scanner scn = new Scanner(System.in);
 
     /* ------ Personal information validations ------ */
 
