@@ -1,4 +1,4 @@
-public class Person {
+public abstract class Person {
 
     // Initialization: Attributes
     public String name;
@@ -7,7 +7,7 @@ public class Person {
     private double balance;
 
     // Constructor: Initializes Person details
-    Person (String name, int age, String contactNumber,double balance){
+    protected Person (String name, int age, String contactNumber,double balance){
         this.name = name;
         this.age = age;
         this.contactNumber = contactNumber;
@@ -39,11 +39,5 @@ public class Person {
         return contactNumber;
     }
 
-    // Method: Displays Bank Account Information
-    public void hasBankAccountInfo () {
-        System.out.println("Name: " + getName());
-        System.out.println("Age: " + getAge());
-        System.out.println("Contact Number: " + getContactNumber());
-        System.out.printf("Current Balance: ₱%,.2f\n", getBalance());
-    }
+    public abstract void displayBankAccountInfo();
 }

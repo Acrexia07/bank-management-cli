@@ -3,8 +3,8 @@ public class BankTransactions {
     /* ------- Bank Transaction Related Methods ------- */
 
     // Method: Bank operation - Show Personal Info
-    public static void displayBankAccountInfo(Person person) {
-        person.hasBankAccountInfo();
+    public static void displayBankAccountInfo(BankCustomer bankCustomer) {
+        bankCustomer.displayBankAccountInfo();
     }
 
     // Method: Bank operation - Show balance
@@ -39,9 +39,9 @@ public class BankTransactions {
     /* ------- Transaction History Related Methods ------- */
 
     // Method: Transaction History - Record Transactions
-    public static void recordTransactions (String[] transactionHistory, String transactionType, double amount, int transactionCount) {
+    public static void recordTransactions (String[] transactionHistory, String transactionType, String totalAmountBalance, double balance, double amount, int transactionCount) {
         if (transactionCount < transactionHistory.length) {
-            transactionHistory[transactionCount] = transactionType + String.format("%.2f", amount);
+            transactionHistory[transactionCount] = transactionType + String.format("%,.2f", amount) + totalAmountBalance + String.format("%,.2f", balance);
         }
         else {
             System.out.println("Transaction History is full!");

@@ -2,10 +2,10 @@
         public static void main(String[] args) {
 
             //Initialization: Create a Person object by collecting user's personal information (name, age & contactNumber)
-            Person person = UserInputHandler.enterPersonalInfo();
+            BankCustomer bankCustomer = UserInputHandler.enterPersonalInfo();
 
             // Input/Outputs: Bank inputs and transactions - Overall bank operations
-            BankOperations.operateBankTransactions(person);
+            BankOperations.operateBankTransactions(bankCustomer);
 
             // Exit: Close scanner object
             InputValidator.closeScanner();
