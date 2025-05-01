@@ -5,6 +5,7 @@ public class BankCustomer extends Person{
         super(name, age, contactNumber, balance);
     }
 
+    // Method: Overridden the abstract method from the Parent (Person class)
     @Override
     public void displayBankAccountInfo() {
         System.out.println("\n==== Bank Account Information ====");

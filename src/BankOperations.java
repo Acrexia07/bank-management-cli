@@ -58,7 +58,6 @@ public class BankOperations {
                     // Process: Record transaction and update transaction count
                     BankTransactions.recordTransactions(transactionHistory, "Transaction: Deposited an amount of ₱"," *** Updated Balance: ₱", balance, amount, transactionCount);
                     transactionCount++;
-
                     BankTransactions.showBalance(balance);
                     System.out.println("-----------------------------\n");
 
@@ -74,7 +73,6 @@ public class BankOperations {
                     // Process: Record transaction and update transaction count
                     BankTransactions.recordTransactions(transactionHistory, "Transaction: Withdrawn an amount of ₱"," *** Updated Balance: ₱", balance,  amount, transactionCount);
                     transactionCount++;
-
                     BankTransactions.showBalance(balance);
                     System.out.println("-----------------------------\n");
 
