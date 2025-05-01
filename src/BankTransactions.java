@@ -38,7 +38,7 @@ public class BankTransactions {
 
     /* ------- Transaction History Related Methods ------- */
 
-    // Method: Transaction History - Record Transactions
+    // Method: Record transaction History - Transactions
     public static void recordTransactions (String[] transactionHistory, String transactionType, String totalAmountBalance, double balance, double amount, int transactionCount) {
         if (transactionCount < transactionHistory.length) {
             transactionHistory[transactionCount] = transactionType + String.format("%,.2f", amount) + totalAmountBalance + String.format("%,.2f", balance);
@@ -48,7 +48,7 @@ public class BankTransactions {
         }
     }
 
-    // Method: Transaction History - Display Transactions
+    // Method: Display Transaction History - Transactions
     public static void displayTransactions (String[] transactionHistory) {
         for (String transactions : transactionHistory) {
             if (transactions != null) {
