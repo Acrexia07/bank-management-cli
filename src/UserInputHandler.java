@@ -1,7 +1,7 @@
 public class UserInputHandler {
 
     // Method: Personal Information
-    public static BankCustomer enterPersonalInfo () {
+    public static BankCustomer enterPersonalInfo (PersonFactory personFactory) {
 
         // Initialization: Variable Declaration
         String name;
@@ -25,6 +25,6 @@ public class UserInputHandler {
         } while (!InputValidator.validateContactNumberInput(contactNumber));
 
         // Process: User input handler - Creates a return Person object with name, age and contactNumber
-        return new BankCustomer(name, age, contactNumber, 0);
+        return (BankCustomer) personFactory.createPerson(name, age, contactNumber, 0);
     }
 }
